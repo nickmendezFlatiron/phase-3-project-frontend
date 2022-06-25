@@ -5,20 +5,21 @@ import { Container , Card , Button , Row , Col} from 'react-bootstrap'
 
 const HomePage = () => {
   return (
-    <Container>
-      <h1 className='text-center py-5'>Portals</h1>
-      <Row >
+    <>
+      <h1 className='text-center pt-5'>Admin Portals</h1>
+    <Container className="py-5">
+      <Row className="justify-content-around">
         {/* Clients Portal */}
           <Col md={4} className=' pb-3 '>
             <Card className="text-center">
               <Card.Header>Clients Portal</Card.Header>
               <Card.Body>
-                <Card.Title><strong>Create A New Client</strong></Card.Title>
+                <Card.Title><strong>Create A New Customer</strong></Card.Title>
                 <i className="icons fa-solid fa-dog text-secondary "></i>              
                 <Card.Text>
-                  With supporting text below as a natural lead-in to additional content.
+                  Create and update customer profiles in your existing customer directory
                 </Card.Text>
-                <Button as={Link} to="/clients" exact variant="primary">Go somewhere</Button>
+                <Button as={Link} to="/clients" exact variant="primary">Go to Customers</Button>
               </Card.Body>
            </Card>
           </Col>
@@ -33,9 +34,9 @@ const HomePage = () => {
                   <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
                 </svg>
                 <Card.Text>
-                  With supporting text below as a natural lead-in to additional content.
+                  Schedule new appointments , assign dog walkers , and check availability
                 </Card.Text>
-                <Button as={Link} to='/schedule' exact variant="primary">Go somewhere</Button>
+                <Button as={Link} to='/schedule' exact variant="primary">Go to Schedule</Button>
               </Card.Body>
            </Card>
           </Col>
@@ -51,13 +52,13 @@ const HomePage = () => {
                 <Card.Text>
                   With supporting text below as a natural lead-in to additional content.
                 </Card.Text>
-                <Button as={Link} to="/payroll" exact variant="primary">Go somewhere</Button>
+                <Button as={Link} to="/payroll" exact variant="primary">Go to Payroll</Button>
               </Card.Body>
            </Card>
           </Col>
-        
         </Row>
     </Container>
+    </>
   )
 }
 
