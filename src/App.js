@@ -8,16 +8,18 @@ import Schedule from './schedule/Schedule';
 import Payroll from './payroll/Payroll';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './app.css';
 
 function App() {
   return (
     <Fragment>
       <Navigation/>
         <Routes>
-            <Route path="clients" element={<Clients />} />
-            <Route path="schedule" element={<Schedule />} />
-            <Route path="payroll" element={<Payroll />} />
-            <Route path="/" element={<HomePage />} />
+
+            <Route path="clients" exact element={<Clients />} />
+            <Route path="schedule" exact element={<Schedule />} />
+            <Route path="payroll" exact element={<Payroll />} />
+            <Route path="/" exact element={<HomePage />} />
         </Routes>
     </Fragment>
   )
