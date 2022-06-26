@@ -13,16 +13,15 @@ import './app.css';
 
 function App() {
   return (
-    <Fragment>
+    <Fragment >
       <Navigation/>
-        <Routes>
-
+        <Routes >
             <Route path="clients" exact element={<Clients />} />
             <Route path="schedule" exact element={<Schedule />} />
             <Route path="payroll" exact element={<Payroll />} />
             <Route path="/" exact element={<HomePage />} />
         </Routes>
-        <Footer/>
+        {/* <Footer/> */}
     </Fragment>
   )
 }

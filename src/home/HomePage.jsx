@@ -6,13 +6,13 @@ import { Container , Card , Button , Row , Col} from 'react-bootstrap'
 const HomePage = () => {
   return (
     <>
-      <h1 className='text-center pt-5'>Admin Portals</h1>
-    <Container className="py-5">
+      <h1 className='text-center pt-5'>Admin Portal</h1>
+    <Container className="py-5 main">
       <Row className="justify-content-around">
         {/* Clients Portal */}
           <Col md={4} className=' pb-3 '>
             <Card className="text-center">
-              <Card.Header>Clients Portal</Card.Header>
+              <Card.Header>Customers</Card.Header>
               <Card.Body>
                 <Card.Title><strong>Create A New Customer</strong></Card.Title>
                 <i className="icons fa-solid fa-dog text-secondary "></i>              
@@ -26,7 +26,7 @@ const HomePage = () => {
           {/* Scheduling Portal */}
           <Col md={4} className='pb-3'>
             <Card className="text-center">
-              <Card.Header>Schedule Portal</Card.Header>
+              <Card.Header>Schedule</Card.Header>
               <Card.Body>
                 <Card.Title><strong>Schedule a New Appointment</strong></Card.Title>
                 <svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" fill="currentColor" className="text-secondary py-2" viewBox="0 0 16 16">
@@ -43,7 +43,7 @@ const HomePage = () => {
           {/* Employee Portal */}
           <Col md={4} className='pb-3'>
             <Card className="text-center">
-              <Card.Header>Employee Payroll Portal</Card.Header>
+              <Card.Header>Employees</Card.Header>
               <Card.Body>
                 <Card.Title><strong>Access Employee Payroll</strong></Card.Title>
                 <svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" fill="currentColor" className="text-secondary py-2" viewBox="0 0 16 16">
