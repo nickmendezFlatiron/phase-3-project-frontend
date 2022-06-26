@@ -7,6 +7,7 @@ const Navigation = () => {
   return (
     <Navbar bg="dark" variant="dark">
       <Container>
+        <img src='./public/Logo 3.png'/>
        <Navbar.Brand as={Link} to="/">Appointments</Navbar.Brand>
         <Nav className="justify-content-end">
           <Nav.Link as={Link} to="/clients" exact>Clients</Nav.Link>
