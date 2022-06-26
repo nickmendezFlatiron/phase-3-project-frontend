@@ -9,3 +9,8 @@ h1 {
   font-size: 50px;
   text-align: center;
 }
+
+#nav-logo {
+  width: 150px;
+  height: auto;
+}
