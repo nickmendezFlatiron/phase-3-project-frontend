@@ -14,3 +14,11 @@ h1 {
   width: 150px;
   height: auto;
 }
+
+.paw-bg {
+  background-image: url(./assets/paw.png);
+  background-repeat: round;
+  background-size: 100px;
+
+  
+}

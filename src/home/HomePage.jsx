@@ -7,10 +7,10 @@ const HomePage = () => {
   return (
     <>
       <h1 className='text-center pt-5'>Admin Portal</h1>
-    <Container className="py-5 main">
+    <Container className="py-5 main paw-bg">
       <Row className="justify-content-around">
         {/* Clients Portal */}
-          <Col md={4} className=' pb-3 '>
+          <Col lg={4} className=' pb-3 '>
             <Card className="text-center">
               <Card.Header>
                 <Card.Title><strong>Create A New Customer</strong></Card.Title>
@@ -25,7 +25,7 @@ const HomePage = () => {
            </Card>
           </Col>
           {/* Scheduling Portal */}
-          <Col md={4} className='pb-3'>
+          <Col lg={4} className='pb-3'>
             <Card className="text-center">
               <Card.Header> 
                 <Card.Title><strong>Schedule a New Appointment</strong></Card.Title>
@@ -43,7 +43,7 @@ const HomePage = () => {
            </Card>
           </Col>
           {/* Employee Portal */}
-          <Col md={4} className='pb-3'>
+          <Col lg={4} className='pb-3'>
             <Card className="text-center">
               <Card.Header>
                 <Card.Title><strong>Access Employee Payroll</strong></Card.Title>

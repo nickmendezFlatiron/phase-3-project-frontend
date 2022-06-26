@@ -2,7 +2,9 @@ import React from 'react'
 
 const Clients = () => {
   return (
-    <div>Clients</div>
+    <>
+      <h1 className='py-5'>Customers Portal</h1>
+    </>
   )
 }
 
