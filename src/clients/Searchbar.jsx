@@ -4,7 +4,7 @@ import { Container , InputGroup , FormControl , Form} from 'react-bootstrap'
 
 const Searchbar = () => {
   return (
-    <Container>
+    <>
     <InputGroup size="lg">
       <FormControl aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder='Search for customers here...' />
       <InputGroup.Text id="inputGroup-sizing-lg">
@@ -17,7 +17,7 @@ const Searchbar = () => {
         <label  className="text-secondary" >&nbsp; Table</label>
       </InputGroup.Text>
   </InputGroup>
-   </Container>
+   </>
   )
 }
 
