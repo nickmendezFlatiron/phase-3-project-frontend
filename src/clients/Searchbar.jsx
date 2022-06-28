@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Container , InputGroup , FormControl , Form} from 'react-bootstrap'
+import { InputGroup , FormControl , Form } from 'react-bootstrap'
 
 const Searchbar = () => {
   return (
