@@ -1,24 +1,25 @@
 import React from 'react'
 import {Card , Col , ListGroup} from 'react-bootstrap'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 
-const ClientCard = () => {
+const ClientCard = ({dog}) => {
+  let {dog_name , dog_image , owner_id , id} = dog
   return (
     <>
-      <Col>
-        <Card className='text-center'>
-          <Card.Img variant="top" src=" https://via.placeholder.com/100" />
+      <Col className="" >
+        <Card className='text-center d-flex align-items-center'>
+          <Card.Img variant="top" src={dog_image} className="dog-card mt-4"/>
           <Card.Body >
-            <ListGroup variant="flush " >
-            <Card.Subtitle >Dog's Name</Card.Subtitle>
-              <ListGroup.Item>Owner</ListGroup.Item>
-              <ListGroup.Item>Emergency Contact </ListGroup.Item>
+            <ListGroup variant="flush" >
+            <Card.Subtitle >Name :{dog_name} ID: {id}</Card.Subtitle>
+              <ListGroup.Item>Owner: {owner_id}</ListGroup.Item>
+              <ListGroup.Item>Emergency Contact: </ListGroup.Item>
               <ListGroup.Item>
                 <Card.Link href="#">#_of Appointments</Card.Link>
               </ListGroup.Item>
               <ListGroup.Item></ListGroup.Item>
             </ListGroup>
-            <Card.Link href="#">Customer_name's Profile</Card.Link>
+            <Card.Link href="#">{dog_name}'s' Profile</Card.Link>
           </Card.Body>
         </Card>
       </Col>

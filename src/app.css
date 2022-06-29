@@ -21,3 +21,8 @@ h1 {
   background-size: 150px;
   
 }
+
+.dog-card {
+  height: 200px;
+  max-width: 200px;
+}
