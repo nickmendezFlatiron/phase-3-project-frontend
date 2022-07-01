@@ -12,22 +12,22 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './app.css';
 
 function App() {
-  const [dogs , setDogs] = useState([])
+  const [owners , setOwners] = useState([])
 
 
   useEffect(() => {
-    fetch("http://localhost:9292/clients")
+    fetch("http://localhost:9292/owners")
     .then(r => r.json())
-    .then(dogs => setDogs(dogs))
+    .then(owners => setOwners(owners))
   }, [])
 
   return (
     <Fragment >
       <Navigation/>
         <Routes >
-            <Route path="clients" exact element={<Clients dogs={dogs}/>} />
-            <Route path="schedule" exact element={<Schedule />} />
-            <Route path="payroll" exact element={<Payroll />} />
+            <Route path="/clients" exact element={<Clients owners={owners}/>} />
+            <Route path="/schedule" exact element={<Schedule />} />
+            <Route path="/payroll" exact element={<Payroll />} />
             <Route path="/" exact element={<HomePage />} />
         </Routes>
         {/* <Footer/> */}

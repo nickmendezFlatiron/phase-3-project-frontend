@@ -3,10 +3,11 @@ import React from 'react'
 import {Row} from 'react-bootstrap'
 import ClientCard from './ClientCard'
 
-const GridView = ({dogs}) => {
+const GridView = ({owners}) => {
 
-  const listOfDogs = dogs.map(dog => {
-   return  <ClientCard dog={dog} key={dog.id}/>
+  const listOfDogs = owners.map(owner => {
+    return owner.dogs.map(dog =>   <ClientCard dog={dog} key={dog.id} owner={owner}/>)
+   
 
   })
   return(
