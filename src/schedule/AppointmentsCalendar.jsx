@@ -1,4 +1,4 @@
-import React , {useState} from 'react'
+import React , {useState , useEffect} from 'react'
 
 // Components and functions for the calendar
 import {Calendar , dateFnsLocalizer} from 'react-big-calendar' ;
@@ -14,7 +14,8 @@ import 'react-big-calendar/lib/css/react-big-calendar.css'
 // import 'react-big-calendar/lib/sass/styles';
 
 
-const AppointmentsCalendar = () => {
+const AppointmentsCalendar = ({all}) => {
+  const [events , setEvents] = useState([])
 
   const locales = {
     "en-US" : enUS 
@@ -29,11 +30,15 @@ const AppointmentsCalendar = () => {
 
   const style = {height: 500}
 
+
+ 
+
+
   return (
     
       <Calendar 
         localizer={localizer} 
-        events={[]} 
+        events={events} 
         startAccessor="start"
         endAccessor="end" 
         style={style}

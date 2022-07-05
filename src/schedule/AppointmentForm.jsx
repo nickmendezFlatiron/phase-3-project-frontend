@@ -1,15 +1,15 @@
 import React from 'react'
 import {Container , Form , Row , Col , Button} from 'react-bootstrap'
 
-const AppointmentForm = () => {
+const AppointmentForm = ({all}) => {
   return (
     <>
-     <Container className="justify-content-around">
+     <Container className="justify-content-around text-center">
       <Form className="mx-auto w-75 shadow rounded-3 bg-light bg-opacity-75" >
-        <Row className="">
+        <Row>
           <Col className="mt-2">
             <Form.Group controlId="formCustomerName">
-              <Form.Label>Customer</Form.Label>
+              <Form.Label className='fw-bold'>Customer</Form.Label>
               <Form.Control type="text" placeholder="John Doe..." required/>
             </Form.Group>
           </Col>
@@ -17,7 +17,7 @@ const AppointmentForm = () => {
         <Row className="my-3">
           <Col className="mt-2">
             <Form.Group controlId="formCustomerName">
-              <Form.Label>Dog</Form.Label>
+              <Form.Label className='fw-bold'>Dog</Form.Label>
               <Form.Control type="text" placeholder="John Doe..." required/>
             </Form.Group>
           </Col>
@@ -25,7 +25,7 @@ const AppointmentForm = () => {
         <Row className="my-2"> 
           <Col>
              <Form.Group controlId="formOrderDate">
-                <Form.Label>Appointment Date</Form.Label>
+                <Form.Label className='fw-bold'>Appointment Date</Form.Label>
                 <Form.Control type="date" name="date" />
               </Form.Group>
           </Col>
@@ -33,7 +33,7 @@ const AppointmentForm = () => {
         <Row className="my-3">
           <Col className="mt-2">
             <Form.Group controlId="formCustomerName">
-              <Form.Label>Assign Walker</Form.Label>
+              <Form.Label className='fw-bold'>Assign Walker</Form.Label>
               <Form.Control type="text" placeholder="John Doe..." required/>
             </Form.Group>
           </Col>
