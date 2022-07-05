@@ -15,8 +15,7 @@ import 'react-big-calendar/lib/css/react-big-calendar.css'
 
 
 const AppointmentsCalendar = ({all}) => {
-  const [events , setEvents] = useState([])
-
+  
   const locales = {
     "en-US" : enUS 
   } 
@@ -29,7 +28,7 @@ const AppointmentsCalendar = ({all}) => {
   })
 
   const style = {height: 500}
-
+  console.log(all.appointments)
 
  
 
@@ -38,9 +37,10 @@ const AppointmentsCalendar = ({all}) => {
     
       <Calendar 
         localizer={localizer} 
-        events={events} 
-        startAccessor="start"
-        endAccessor="end" 
+        events={all.appointments} 
+        title="walk Scheduled"
+        startAccessor="date"
+        endAccessor="date" 
         style={style}
       />
     

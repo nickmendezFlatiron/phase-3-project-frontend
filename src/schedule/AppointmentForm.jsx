@@ -1,7 +1,11 @@
-import React from 'react'
+import {React , } from 'react'
 import {Container , Form , Row , Col , Button} from 'react-bootstrap'
 
 const AppointmentForm = ({all}) => {
+  if (all.length === 0) return <h3>Loading...</h3>
+
+  const listOfEmployees = all.employees.filter(employee => employee.position === "walker").map(employee => {return <option key={employee.id} value={employee.employee_name}>{employee.employee_name}</option>})
+  console.log("walkers: " , listOfEmployees)
   return (
     <>
      <Container className="justify-content-around text-center">
@@ -25,8 +29,16 @@ const AppointmentForm = ({all}) => {
         <Row className="my-2"> 
           <Col>
              <Form.Group controlId="formOrderDate">
-                <Form.Label className='fw-bold'>Appointment Date</Form.Label>
+                <Form.Label className='fw-bold'>Date</Form.Label>
                 <Form.Control type="date" name="date" />
+              </Form.Group>
+          </Col>
+        </Row>
+        <Row className="my-2"> 
+          <Col>
+             <Form.Group controlId="formOrderDate">
+                <Form.Label className='fw-bold'>Time</Form.Label>
+                <Form.Control type="time" name="time" />
               </Form.Group>
           </Col>
         </Row>
@@ -34,7 +46,9 @@ const AppointmentForm = ({all}) => {
           <Col className="mt-2">
             <Form.Group controlId="formCustomerName">
               <Form.Label className='fw-bold'>Assign Walker</Form.Label>
-              <Form.Control type="text" placeholder="John Doe..." required/>
+             <select id="walkers">
+              {listOfEmployees}
+             </select>
             </Form.Group>
           </Col>
         </Row>
