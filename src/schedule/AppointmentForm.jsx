@@ -4,8 +4,8 @@ import {Container , Form , Row , Col , Button} from 'react-bootstrap'
 const AppointmentForm = ({all}) => {
   if (all.length === 0) return <h3>Loading...</h3>
 
-  const listOfEmployees = all.employees.filter(employee => employee.position === "walker").map(employee => {return <option key={employee.id} value={employee.employee_name}>{employee.employee_name}</option>})
-  console.log("walkers: " , listOfEmployees)
+  const listOfWalkers = all.employees.filter(employee => employee.position === "walker").map(employee => {return <option key={employee.id} value={employee.employee_name}>{employee.employee_name}</option>})
+ 
   return (
     <>
      <Container className="justify-content-around text-center">
@@ -46,9 +46,9 @@ const AppointmentForm = ({all}) => {
           <Col className="mt-2">
             <Form.Group controlId="formCustomerName">
               <Form.Label className='fw-bold'>Assign Walker</Form.Label>
-             <select id="walkers">
-              {listOfEmployees}
-             </select>
+              <Form.Select aria-label="Select walker...">
+                {listOfWalkers}
+              </Form.Select>
             </Form.Group>
           </Col>
         </Row>
