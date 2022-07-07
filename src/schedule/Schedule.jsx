@@ -17,7 +17,8 @@ const Schedule = () => {
   } , [])
 
   return (
-    <Container className='pt-5'>
+    <Container >
+      <h1 className='py-5' >Walk Schedule</h1>
       <Row>
         <Col lg={8}>
           <AppointmentsCalendar all={all}/>

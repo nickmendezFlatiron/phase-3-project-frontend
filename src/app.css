@@ -27,7 +27,6 @@ h1 {
   max-width: 200px;
 }
 
-.appointment-calendar {
-  height: 500;
-
+.padding {
+  padding: 20px;
 }
