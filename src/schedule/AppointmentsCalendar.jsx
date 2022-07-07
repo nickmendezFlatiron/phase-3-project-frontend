@@ -28,10 +28,6 @@ const AppointmentsCalendar = ({all}) => {
   })
 
   const style = {height: 500}
-  console.log(all.appointments)
-
- 
-
 
   return (
     
