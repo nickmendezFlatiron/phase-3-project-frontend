@@ -16,7 +16,7 @@ import 'react-big-calendar/lib/css/react-big-calendar.css'
 
 const AppointmentsCalendar = ({all}) => {
 
-  
+  if (all.length === 0) return <h3>Loading...</h3>
 
   const locales = {
     "en-US" : enUS 
@@ -31,16 +31,28 @@ const AppointmentsCalendar = ({all}) => {
 
   const style = {height: 500}
 
-  // const events = all.appointments.map(appointment => {
-  //   const {start , end , title} = appointment
+  const events = all.appointments.length > 1 && all.appointments.map(appointment => {
+    let {start , end , title , id} = appointment
 
-  //   console.log(start)
-  // })
+    start = new Date(start)
+    end  = new Date(end)
+
+    
+    return {
+      start: start ,
+      end : end ,
+      id : id ,
+      resourceId : id + 1 ,
+      title : title
+    }
+  })
+
+  console.log(events)
 
   return (
     
       <Calendar 
-          events={all.appointments}
+          events={events}
           localizer={localizer}
           showMultiDayTimes
           step={60}
