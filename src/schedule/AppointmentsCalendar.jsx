@@ -1,7 +1,7 @@
 import React , {useState , useEffect} from 'react'
 
 // Components and functions for the calendar
-import {Calendar , dateFnsLocalizer} from 'react-big-calendar' ;
+import {Calendar , dateFnsLocalizer } from 'react-big-calendar' ;
 import format from 'date-fns/format'
 import parse from 'date-fns/parse'
 import startOfWeek from 'date-fns/startOfWeek'
@@ -15,7 +15,9 @@ import 'react-big-calendar/lib/css/react-big-calendar.css'
 
 
 const AppointmentsCalendar = ({all}) => {
+
   
+
   const locales = {
     "en-US" : enUS 
   } 
@@ -29,14 +31,20 @@ const AppointmentsCalendar = ({all}) => {
 
   const style = {height: 500}
 
+  // const events = all.appointments.map(appointment => {
+  //   const {start , end , title} = appointment
+
+  //   console.log(start)
+  // })
+
   return (
     
       <Calendar 
-        localizer={localizer} 
-        events={all.appointments} 
-        title="walk Scheduled"
-        startAccessor="date"
-        endAccessor="date" 
+          events={all.appointments}
+          localizer={localizer}
+          showMultiDayTimes
+          step={60}
+          
         style={style}
       />
     

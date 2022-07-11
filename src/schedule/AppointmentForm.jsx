@@ -4,11 +4,14 @@ import {Container , Form , Row , Col , Button} from 'react-bootstrap'
 const AppointmentForm = ({all}) => {
   // Date , time , Assign walker
   const [dog , setDog] = useState('')
-  const [walkDuration , setWalkDuration] = useState(0)
+  const [walkDuration , setWalkDuration] = useState('')
   const [date , setDate] = useState('')
   const [time , setTime] = useState('')
   const [walker , setWalker] = useState('')
   
+  
+
+
   if (all.length === 0) return <h3>Loading...</h3>
 
   function handleDog(event) {
@@ -16,13 +19,19 @@ const AppointmentForm = ({all}) => {
   }
   function handleWalkDuration(event) {
     setWalkDuration(event.target.value)
+    console.log(parseInt(event.target.value))
   }
   function handleDate(event) {
-    setDate(event.target.value)
+    // months are 0..11 , not 1..12
+    const format = event.target.value.split('-')
+    format[1] = format[1] - 1
+    setDate(format)
+
   }
   function handleTime(event) {
-    setTime(event.target.value)
-    console.log(event.target.value)
+    const format = event.target.value.split(':')
+    setTime(format)
+    
   }
   function handleWalker(event) {
     setWalker(event.target.value)
@@ -30,33 +39,49 @@ const AppointmentForm = ({all}) => {
 
   function handleSubmit(event) {
     event.preventDefault()
+    
+    
+    const datetime = [...date , ...time , 0 , 0]
+    
+    const newDate = new Date(...datetime)
+    const newCopy = new Date(...datetime)
+
+    const end = newCopy.setMinutes(newDate.getMinutes() + 30)  
+   
+    if(dog === '' || date === '' || time === '' || walker === '' || walkDuration === '') {
+     return alert('Please fill out the entire form to submit a new appointment.')
+    }
+
     const newAppointment = {
       dog_id : dog ,
       employee_id : walker , 
       walk_duration : walkDuration ,
-      date : date ,
-      time : time
+      start : newDate  ,
+      end : end  
     }
 
-    fetch(`http://localhost:3001/appointments` , {
+
+    fetch(`http://localhost:3002/appointments` , {
       method : 'POST' ,
       headers: { "Content-Type" : 'application/json'} ,
       body : JSON.stringify(newAppointment)
     })
-    .then(r => r.json())
-    .then((appointment) => {all.appointments = [...all.appointments , appointment]})
-    console.log('sent: ', newAppointment)
+      .then(r => r.json())
+      .then((appointment) => {all.appointments = [...all.appointments , appointment]})
+      console.log('new_log: ', all.appointments)
     setDog('')
-    setWalkDuration(0)
+    setWalkDuration('')
     setDate('')
     setTime('')
     setWalker('')
+
+    alert(`Appointment for ${date} at ${time} has been scheduled`)
   }
 
   
   const listOfWalkers = all.employees.filter(employee => employee.position === "walker").map(employee => {return <option key={employee.id} value={employee.id}>{employee.employee_name}</option>})
   const listOfDogs = all.dogs.map(dog => {return <option key={dog.id} value={dog.id}>{dog.dog_name}</option>})
-  console.log(listOfDogs)
+  
   return (
     <>
      <Container className="justify-content-around text-center">
@@ -66,6 +91,7 @@ const AppointmentForm = ({all}) => {
             <Form.Group controlId="formCustomerName">
               <Form.Label className='fw-bold'>Dog</Form.Label>
               <Form.Select onChange={handleDog}>
+                <option value="default-dog">Select a Dog</option>
                 {listOfDogs}
               </Form.Select>
             </Form.Group>
@@ -103,6 +129,7 @@ const AppointmentForm = ({all}) => {
             <Form.Group controlId="formAssignedWalker">
               <Form.Label className='fw-bold'>Assign Walker</Form.Label>
               <Form.Select aria-label="Select walker..." onChange={handleWalker}>
+                <option value="default-walker">Select a Walker</option>
                 {listOfWalkers}
               </Form.Select>
             </Form.Group>

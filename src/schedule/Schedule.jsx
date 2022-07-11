@@ -10,7 +10,7 @@ const Schedule = () => {
   const [all , setAll] = useState([])
  
   useEffect(() => {
-    fetch("http://localhost:3001/all")
+    fetch("http://localhost:3002/all")
     .then(r => r.json())
     .then (allRes => setAll(allRes))
 

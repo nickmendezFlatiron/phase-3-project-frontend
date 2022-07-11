@@ -16,7 +16,7 @@ function App() {
 
 
   useEffect(() => {
-    fetch("http://localhost:3001/owners")
+    fetch("http://localhost:3002/owners")
     .then(r => r.json())
     .then(owners => setOwners(owners))
   }, [])
