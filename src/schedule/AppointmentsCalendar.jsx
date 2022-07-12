@@ -1,4 +1,4 @@
-import React , {useState , useEffect} from 'react'
+import React , {useState , useCallback} from 'react'
 
 // Components and functions for the calendar
 import {Calendar , dateFnsLocalizer } from 'react-big-calendar' ;
@@ -16,6 +16,16 @@ import 'react-big-calendar/lib/css/react-big-calendar.css'
 
 const AppointmentsCalendar = ({appointments}) => {
 
+  const handleSelectEvent = useCallback(
+    (event) =>{ 
+      const time = event.start.toString().split(" ").slice(4,5).join(" ")
+      
+      window.alert(
+    `${event.title} for ${event.walkDuration} minutes
+      Scheduled time : ${time}`)},
+    []
+  )
+
   if (appointments.length === 0) return <h3>Loading...</h3>
 
   const locales = {
@@ -32,31 +42,35 @@ const AppointmentsCalendar = ({appointments}) => {
   const style = {height: 500}
 
   const events = appointments.length > 1 && appointments.map(appointment => {
-    let {start , end , title , id} = appointment
+    let {start , end , title , id , walk_duration} = appointment
 
     start = new Date(start)
     end  = new Date(end)
-
+  
     
     return {
       start: start ,
       end : end ,
       id : id ,
-      resourceId : id + 1 ,
-      title : `${title}'s walk` 
+      resourceId : `${id}_${title}` ,
+      title : `${title}'s walk` , 
+      walkDuration : walk_duration
     }
   })
 
-  console.log("events " , events)
+  
+
+  // console.log("events " , events)
 
   return (
     
       <Calendar 
-          events={events}
-          localizer={localizer}
-          showMultiDayTimes
-          step={60}
-          
+        events={events}
+        localizer={localizer}
+        showMultiDayTimes
+        step={60}
+        onSelectEvent={handleSelectEvent}
+        showAllEvents={true}
         style={style}
       />
     
