@@ -6,6 +6,7 @@ import Col from 'react-bootstrap/Col'
 import AppointmentForm from './AppointmentForm'
 import AppointmentsCalendar from './AppointmentsCalendar'
 import Toolbar from './Toolbar'
+import AppointmentTable from './AppointmentTable'
 
 const Schedule = ({owners}) => {
   const [appointments , setAppointments] = useState([])
@@ -18,7 +19,7 @@ const Schedule = ({owners}) => {
 
   } , [])
   
-  const render = toggle === false ? <AppointmentsCalendar appointments={appointments}/> : <h1>True</h1>
+  const render = toggle === false ? <AppointmentsCalendar appointments={appointments}/> : <AppointmentTable appointments={appointments} setAppointments={setAppointments}/>
   return (
     <Container >
       <Row className='pb-4' >
@@ -31,10 +32,10 @@ const Schedule = ({owners}) => {
 
       </Row>
       <Row >
-        <Col lg={8}>
+        <Col lg={9}>
           {render}
         </Col>
-        <Col lg={4}>
+        <Col lg={3}>
           <AppointmentForm owners={owners} appointments={appointments} setAppointments={setAppointments}/>  
         </Col>
       </Row>
