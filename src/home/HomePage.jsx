@@ -46,7 +46,7 @@ const HomePage = () => {
           <Col lg={4} className='pb-3'>
             <Card className="text-center shadow-lg">
               <Card.Header>
-                <Card.Title><strong>Access Employee Payroll</strong></Card.Title>
+                <Card.Title><strong>Access Employee Information</strong></Card.Title>
               </Card.Header>
               <Card.Body>
                 <svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" fill="currentColor" className="text-secondary py-2" viewBox="0 0 16 16">

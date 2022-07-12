@@ -18,11 +18,13 @@ const AppointmentsCalendar = ({appointments}) => {
 
   const handleSelectEvent = useCallback(
     (event) =>{ 
-      const time = event.start.toString().split(" ").slice(4,5).join(" ")
-      
+      // Format time to 12H 
+      const time = event.start.toString().split(" ").slice(4,5).join(" ").split(":")
+      time.pop()
+      const amPm = parseInt(time[0]) <= 12 ? `${time.join(":")} AM` : `${parseInt(time[0]) - 12}:${time[1]} PM` 
+
       window.alert(
-    `${event.title} for ${event.walkDuration} minutes
-      Scheduled time : ${time}`)},
+    `${event.title} for ${event.walkDuration} minutes at ${amPm}`)},
     []
   )
 

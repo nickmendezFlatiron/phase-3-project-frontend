@@ -84,8 +84,8 @@ const AppointmentForm = ({appointments , setAppointments , owners}) => {
   
   return (
     <>
-     <Container className="justify-content-around text-center">
-      <Form className="mx-auto w-75 shadow rounded-3 bg-light bg-opacity-75 padding" onSubmit={handleSubmit}>
+     <Container className="text-center pe-0">
+      <Form className="mx-auto shadow rounded-3 bg-light bg-opacity-75 padding" onSubmit={handleSubmit}>
         <Row>
           <Col className="my-2">
             <Form.Group controlId="formCustomerName">
