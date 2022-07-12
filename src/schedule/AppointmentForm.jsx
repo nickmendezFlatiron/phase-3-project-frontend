@@ -1,7 +1,7 @@
 import {React , useState} from 'react'
 import {Container , Form , Row , Col , Button} from 'react-bootstrap'
 
-const AppointmentForm = ({all}) => {
+const AppointmentForm = ({appointments , setAppointments , owners}) => {
   // Date , time , Assign walker
   const [dog , setDog] = useState('')
   const [walkDuration , setWalkDuration] = useState('')
@@ -10,16 +10,16 @@ const AppointmentForm = ({all}) => {
   const [walker , setWalker] = useState('')
   
   
+  // console.log('owners' , owners)
 
-
-  if (all.length === 0) return <h3>Loading...</h3>
+  if (owners.length === 0) return <h3>Loading...</h3>
 
   function handleDog(event) {
     setDog(event.target.value)
   }
   function handleWalkDuration(event) {
     setWalkDuration(event.target.value)
-    console.log(parseInt(event.target.value))
+   
   }
   function handleDate(event) {
     // months are 0..11 , not 1..12
@@ -67,8 +67,8 @@ const AppointmentForm = ({all}) => {
       body : JSON.stringify(newAppointment)
     })
       .then(r => r.json())
-      .then((appointment) => {all.appointments = [...all.appointments , appointment]})
-      console.log('new_log: ', all.appointments)
+      .then((appointment) => {setAppointments([...appointments , appointment])})
+      
     setDog('')
     setWalkDuration('')
     setDate('')
@@ -79,8 +79,8 @@ const AppointmentForm = ({all}) => {
   }
 
   
-  const listOfWalkers = all.employees.filter(employee => employee.position === "walker").map(employee => {return <option key={employee.id} value={employee.id}>{employee.employee_name}</option>})
-  const listOfDogs = all.dogs.map(dog => {return <option key={dog.id} value={dog.id}>{dog.dog_name}</option>})
+  const listOfWalkers = []
+  const listOfDogs = []
   
   return (
     <>

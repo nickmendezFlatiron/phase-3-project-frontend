@@ -6,25 +6,26 @@ import Col from 'react-bootstrap/Col'
 import AppointmentForm from './AppointmentForm'
 import AppointmentsCalendar from './AppointmentsCalendar'
 
-const Schedule = () => {
-  const [all , setAll] = useState([])
+const Schedule = ({owners}) => {
+  const [appointments , setAppointments] = useState([])
  
   useEffect(() => {
-    fetch("http://localhost:3002/all")
+    fetch("http://localhost:3002/appointments")
     .then(r => r.json())
-    .then (allRes => setAll(allRes))
+    .then (appointments => setAppointments(appointments))
 
   } , [])
-
+  
+  
   return (
     <Container >
       <h1 className='py-5' >Walk Schedule</h1>
       <Row>
         <Col lg={8}>
-          <AppointmentsCalendar all={all}/>
+          <AppointmentsCalendar appointments={appointments}/>
         </Col>
         <Col lg={4}>
-          <AppointmentForm all={all}/>  
+          <AppointmentForm owners={owners} appointments={appointments} setAppointments={setAppointments}/>  
         </Col>
       </Row>
     </Container>

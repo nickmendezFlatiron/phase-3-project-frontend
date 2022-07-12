@@ -21,12 +21,13 @@ function App() {
     .then(owners => setOwners(owners))
   }, [])
 
+  
   return (
     <Fragment >
       <Navigation/>
         <Routes >
             <Route path="/clients" exact element={<Clients owners={owners}/>} />
-            <Route path="/schedule" exact element={<Schedule />} />
+            <Route path="/schedule" exact element={<Schedule owners={owners}/>} />
             <Route path="/payroll" exact element={<Payroll />} />
             <Route path="/" exact element={<HomePage />} />
         </Routes>

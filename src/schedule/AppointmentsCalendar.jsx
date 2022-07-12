@@ -14,9 +14,9 @@ import 'react-big-calendar/lib/css/react-big-calendar.css'
 // import 'react-big-calendar/lib/sass/styles';
 
 
-const AppointmentsCalendar = ({all}) => {
+const AppointmentsCalendar = ({appointments}) => {
 
-  if (all.length === 0) return <h3>Loading...</h3>
+  if (appointments.length === 0) return <h3>Loading...</h3>
 
   const locales = {
     "en-US" : enUS 
@@ -31,7 +31,7 @@ const AppointmentsCalendar = ({all}) => {
 
   const style = {height: 500}
 
-  const events = all.appointments.length > 1 && all.appointments.map(appointment => {
+  const events = appointments.length > 1 && appointments.map(appointment => {
     let {start , end , title , id} = appointment
 
     start = new Date(start)
@@ -43,11 +43,11 @@ const AppointmentsCalendar = ({all}) => {
       end : end ,
       id : id ,
       resourceId : id + 1 ,
-      title : title
+      title : `${title}'s walk` 
     }
   })
 
-  console.log(events)
+  console.log("events " , events)
 
   return (
     
