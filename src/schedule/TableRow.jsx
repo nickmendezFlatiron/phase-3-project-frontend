@@ -9,11 +9,15 @@ const TableRow = ({appointment , walkers , appointments , setAppointments}) => {
   
   function handleClick() {
 
-    let filter = appointments.filter(appointment => appointment.id !== id)
-    
-    fetch(`http://localhost:3002/appointments/${id}` , {method: 'DELETE'})
-      .then(r => r.json())
-      .then(() => setAppointments(filter))
+   let res = window.confirm(`Are you sure you want to cancel ${title}'s walk with ${walker.employee_name}?` )
+
+   if (res === true) {
+     let filter = appointments.filter(appointment => appointment.id !== id)
+     
+     fetch(`http://localhost:3002/appointments/${id}` , {method: 'DELETE'})
+       .then(r => r.json())
+       .then(() => setAppointments(filter))
+   } 
   }
   
   return (

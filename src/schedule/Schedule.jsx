@@ -30,7 +30,7 @@ const Schedule = ({owners , walkers}) => {
         </Col>
       </Row>
       <Row >
-        <Col lg={9}>
+        <Col lg={9} className="height-match">
           {toggleView}
         </Col>
         <Col lg={3}>

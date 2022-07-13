@@ -10,7 +10,7 @@ const AppointmentTable = ({appointments , walkers , setAppointments}) => {
   })
 
   return (
-    <Table striped hover>
+    <Table striped hover className='overflow'>
       <thead>
         <tr>
           <th>Appointment</th>

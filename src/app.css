@@ -30,3 +30,9 @@ h1 {
 .padding {
   padding: 20px;
 }
+
+.height-match {
+  height: 540px;
+  overflow: auto;
+  display:inline-block;
+}
