@@ -20,21 +20,18 @@ const Schedule = ({owners , walkers}) => {
 
   } , [])
   
-  const render = toggle === false ? <AppointmentsCalendar appointments={appointments}/> : <AppointmentTable appointments={appointments} setAppointments={setAppointments}/>
+  const toggleView = toggle === false ? <AppointmentsCalendar appointments={appointments} walkers={walkers}/> : <AppointmentTable appointments={appointments} setAppointments={setAppointments} walkers={walkers}/>
   return (
     <Container >
-      <Row className='pb-4' >
-      
       <h1 className='py-5'>Walk Schedule</h1>
-    
+      <Row className='pb-4' >
         <Col>
            <Toolbar toggle={toggle} onToggle={onToggle} />
         </Col>
-
       </Row>
       <Row >
         <Col lg={9}>
-          {render}
+          {toggleView}
         </Col>
         <Col lg={3}>
           <AppointmentForm owners={owners} appointments={appointments} setAppointments={setAppointments} walkers={walkers}/>  

@@ -15,7 +15,7 @@ import 'react-big-calendar/lib/css/react-big-calendar.css'
 // import 'react-big-calendar/lib/sass/styles';
 
 
-const AppointmentsCalendar = ({appointments}) => {
+const AppointmentsCalendar = ({appointments , walkers}) => {
 
   const handleSelectEvent = useCallback(
     (event) =>{ 
@@ -62,10 +62,6 @@ const AppointmentsCalendar = ({appointments}) => {
     }
   })
 
-  
-
-  // console.log("events " , events)
-
   return (
     
       <Calendar 
@@ -74,7 +70,7 @@ const AppointmentsCalendar = ({appointments}) => {
         showMultiDayTimes
         step={60}
         onSelectEvent={handleSelectEvent}
-        showAllEvents={true}
+        // showAllEvents={true}
         style={style}
       />
     
