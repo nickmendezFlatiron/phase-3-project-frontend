@@ -6,7 +6,7 @@ import TableRow from './TableRow'
 const AppointmentTable = ({appointments , walkers , setAppointments}) => {
 
   const listOfRows = appointments.map(appointment => {
-    return <TableRow key={appointment.id} appointment={appointment} walkers={walkers}/>
+    return <TableRow key={appointment.id} appointment={appointment} walkers={walkers} appointments={appointments} setAppointments={setAppointments}/>
   })
 
   return (
@@ -16,7 +16,7 @@ const AppointmentTable = ({appointments , walkers , setAppointments}) => {
           <th>Appointment</th>
           <th>Dog</th>
           <th>Walker</th>
-          <th>Cancel</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
