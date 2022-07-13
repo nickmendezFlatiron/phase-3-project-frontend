@@ -13,12 +13,17 @@ import './app.css';
 
 function App() {
   const [owners , setOwners] = useState([])
-
+  const [walkers , setWalkers] = useState([])
 
   useEffect(() => {
-    fetch("http://localhost:3002/owners")
-    .then(r => r.json())
-    .then(owners => setOwners(owners))
+    const routes = ["owners" , "walkers"]
+    
+    Promise.all([fetch("http://localhost:3002/owners") , fetch("http://localhost:3002/walkers")])
+    .then(r => Promise.all(r.map(res => res.json())))
+    .then(data => {
+      setOwners(data[0])
+      setWalkers(data[1])
+    })
   }, [])
 
   
@@ -27,7 +32,7 @@ function App() {
       <Navigation/>
         <Routes >
             <Route path="/clients" exact element={<Clients owners={owners}/>} />
-            <Route path="/schedule" exact element={<Schedule owners={owners}/>} />
+            <Route path="/schedule" exact element={<Schedule owners={owners} walkers={walkers}/>} />
             <Route path="/payroll" exact element={<Payroll />} />
             <Route path="/" exact element={<HomePage />} />
         </Routes>

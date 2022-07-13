@@ -3,12 +3,13 @@ import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 
+
 import AppointmentForm from './AppointmentForm'
 import AppointmentsCalendar from './AppointmentsCalendar'
 import Toolbar from './Toolbar'
 import AppointmentTable from './AppointmentTable'
 
-const Schedule = ({owners}) => {
+const Schedule = ({owners , walkers}) => {
   const [appointments , setAppointments] = useState([])
   const [toggle , onToggle] = useState(false)
  
@@ -36,7 +37,7 @@ const Schedule = ({owners}) => {
           {render}
         </Col>
         <Col lg={3}>
-          <AppointmentForm owners={owners} appointments={appointments} setAppointments={setAppointments}/>  
+          <AppointmentForm owners={owners} appointments={appointments} setAppointments={setAppointments} walkers={walkers}/>  
         </Col>
       </Row>
     </Container>

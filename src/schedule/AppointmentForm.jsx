@@ -1,7 +1,7 @@
 import {React , useState} from 'react'
 import {Container , Form , Row , Col , Button} from 'react-bootstrap'
 
-const AppointmentForm = ({appointments , setAppointments , owners}) => {
+const AppointmentForm = ({appointments , setAppointments , owners , walkers}) => {
   // Date , time , Assign walker
   const [dog , setDog] = useState('')
   const [walkDuration , setWalkDuration] = useState('')
@@ -75,12 +75,12 @@ const AppointmentForm = ({appointments , setAppointments , owners}) => {
     setTime('')
     setWalker('')
 
-    alert(`Appointment for ${date} at ${time} has been scheduled`)
+    alert(`Appointment for ${newDate} at ${time} has been scheduled`)
   }
 
   
-  const listOfWalkers = []
-  const listOfDogs = []
+  const listOfWalkers = walkers.map(walker => {return <option key={walker.id} value={walker.id}>{walker.employee_name}</option>})
+  const listOfDogs = owners.map(owner => {return owner.dogs.map(dog => {return <option key={`${dog.id}-${dog.dog_weight}`} value={dog.id}>{dog.dog_name}</option>})})
   
   return (
     <>

@@ -1,4 +1,5 @@
 import React , {useState , useCallback} from 'react'
+import Spinner from 'react-bootstrap/Spinner'
 
 // Components and functions for the calendar
 import {Calendar , dateFnsLocalizer } from 'react-big-calendar' ;
@@ -27,9 +28,10 @@ const AppointmentsCalendar = ({appointments}) => {
     `${event.title} for ${event.walkDuration} minutes at ${amPm}`)},
     []
   )
-
-  if (appointments.length === 0) return <h3>Loading...</h3>
-
+  let spinner = <Spinner animation="border" role="status">
+  <span className="visually-hidden">Loading...</span>
+</Spinner>
+  if (appointments.length === 0) return spinner
   const locales = {
     "en-US" : enUS 
   } 
