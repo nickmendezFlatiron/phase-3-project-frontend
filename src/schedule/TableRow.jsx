@@ -3,12 +3,12 @@ import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 
 const TableRow = ({appointment , walkers , appointments , setAppointments}) => {
+
   let {id , start , title , employee_id , walk_duration} = appointment
   const walker = walkers.find(walker => walker.id === employee_id)
+
   const [walkerId , setWalkerState] = useState(walker.id)
-  
-  
-  
+  const [time , setTime] = useState(walk_duration)
   
   start = (new Date(start)).toString().split(" ").slice(0,5).join(" ")
   
@@ -23,36 +23,54 @@ const TableRow = ({appointment , walkers , appointments , setAppointments}) => {
   }
 
   function handleUpdate() {
-    fetch(`http://localhost:3002/appointments/${id}` , {
-      method: 'PATCH' ,
-      headers: { "Content-Type" : "application/json" } ,
-      body: JSON.stringify({
-        employee_id: walkerId
+    if (walker.id !== walkerId || walk_duration !== time) {
+      fetch(`http://localhost:3002/appointments/${id}` , {
+        method: 'PATCH' ,
+        headers: { "Content-Type" : "application/json" } ,
+        body: JSON.stringify({
+          employee_id: walkerId , 
+          walk_duration: time 
+        })
       })
-    })
-      .then((r) => r.json()) 
-      .then(res => {
-        const filter = appointments.filter(a => a.id !== id)
-        setAppointments([...filter , res])
-        alert('Appointment Walker Updated')
-      })
+        .then((r) => r.json()) 
+        .then(res => {
+          const filter = appointments.filter(a => a.id !== id)
+          setAppointments(() => [...filter , res])
+          
+          alert(`${title}'s Walk Updated`)
+        })
+    }
   }
   
   function handleWalker(event) {
     setWalkerState(event.target.value)
   }
 
-  const listOfWalkers = walkers.map(w => {return (w.employee_name !== walker.employee_name) && <option key={`${w.id}-${w.id}`} value={w.id}>{w.employee_name}</option>})
+  function handleTime(event) {
+    setTime(parseInt(event.target.value))
+    console.log("time " , event.target.value)
+  }
 
- const form = <Form.Select aria-label="Select walker..." onChange={handleWalker}>
-                <option value="default-walker">{walker.employee_name}</option>
+  
+  const listOfWalkers = walkers.map(w => {return (w.employee_name !== walker.employee_name) && <option key={`${w.id}-${w.id}`} value={w.id}>{w.employee_name}</option>})
+  
+
+  const form = <Form.Select aria-label="Select walker..." onChange={handleWalker}>
+                <option value={walker.id}>{walker.employee_name}</option>
                 {listOfWalkers}
               </Form.Select>
+
+  
+
+  const timeForm = <Form.Select aria-label="Select time" onChange={handleTime}>
+                      <option value={30} selected={walk_duration === 30 ? true : false}>{30}</option>
+                      <option value={60} selected={walk_duration === 60 ? true : false}>{60}</option>
+                    </Form.Select>
 
   return (
     <tr>
       <td>{start}</td>
-      <td>{walk_duration}</td>
+      <td>{timeForm}</td>
       <td>{title}</td>
       <td>{form}</td>
       <td>

@@ -31,10 +31,12 @@ const AppointmentsCalendar = ({appointments , walkers}) => {
   let spinner = <Spinner animation="border" role="status">
   <span className="visually-hidden">Loading...</span>
 </Spinner>
+
   if (appointments.length === 0) return spinner
   const locales = {
     "en-US" : enUS 
   } 
+  
   const localizer = dateFnsLocalizer({
     format ,
     parse ,
