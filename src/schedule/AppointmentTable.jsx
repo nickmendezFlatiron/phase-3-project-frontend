@@ -20,6 +20,7 @@ const AppointmentTable = ({appointments , walkers , setAppointments , filter}) =
       <thead>
         <tr>
           <th>Appointment</th>
+          <th>Time</th>
           <th>Dog</th>
           <th>Walker</th>
           <th></th>
