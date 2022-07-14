@@ -3,9 +3,15 @@ import React from 'react'
 import Table from 'react-bootstrap/Table'
 import TableRow from './TableRow'
 
-const AppointmentTable = ({appointments , walkers , setAppointments}) => {
+const AppointmentTable = ({appointments , walkers , setAppointments , filter}) => {
 
-  const listOfRows = appointments.map(appointment => {
+  // Filter appointments by employee name and dog name
+  const filterResults = appointments.filter(appointment => { 
+    const walker = walkers.find(walker => walker.id === appointment.employee_id)
+    return appointment.title.toLowerCase().includes(filter) || walker.employee_name.toLowerCase().includes(filter)}
+  )
+
+  const listOfRows = filterResults.map(appointment => {
     return <TableRow key={appointment.id} appointment={appointment} walkers={walkers} appointments={appointments} setAppointments={setAppointments}/>
   })
 

@@ -12,6 +12,7 @@ import AppointmentTable from './AppointmentTable'
 const Schedule = ({owners , walkers}) => {
   const [appointments , setAppointments] = useState([])
   const [toggle , onToggle] = useState(false)
+  const [filter , setFilter] = useState("")
  
   useEffect(() => {
     fetch("http://localhost:3002/appointments")
@@ -20,13 +21,13 @@ const Schedule = ({owners , walkers}) => {
 
   } , [])
   
-  const toggleView = toggle === false ? <AppointmentsCalendar appointments={appointments} walkers={walkers}/> : <AppointmentTable appointments={appointments} setAppointments={setAppointments} walkers={walkers}/>
+  const toggleView = toggle === false ? <AppointmentsCalendar appointments={appointments} walkers={walkers}/> : <AppointmentTable appointments={appointments} setAppointments={setAppointments} walkers={walkers} filter={filter}/>
   return (
     <Container >
       <h1 className='py-5'>Walk Schedule</h1>
       <Row className='pb-4' >
         <Col>
-           <Toolbar toggle={toggle} onToggle={onToggle} />
+           <Toolbar toggle={toggle} onToggle={onToggle} filter={filter} setFilter={setFilter}/>
         </Col>
       </Row>
       <Row >
