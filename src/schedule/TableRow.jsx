@@ -21,7 +21,7 @@ const TableRow = ({appointment , walkers , appointments , setAppointments}) => {
        .then(() => setAppointments(filter))
    } 
   }
-
+  
   function handleUpdate() {
     if (walker.id !== walkerId || walk_duration !== time) {
       fetch(`http://localhost:3002/appointments/${id}` , {
@@ -34,11 +34,13 @@ const TableRow = ({appointment , walkers , appointments , setAppointments}) => {
       })
         .then((r) => r.json()) 
         .then(res => {
-          const filter = appointments.filter(a => a.id !== id)
-          setAppointments(() => [...filter , res])
-          
-          alert(`${title}'s Walk Updated`)
+          // const filter = appointments.filter(a => a.id !== id)
+          const index = appointments.indexOf(appointment)
+          appointments.splice(index , 1 , res) 
+          setAppointments([...appointments])
         })
+        alert(`${title}'s Walk Updated`)
+        
     }
   }
   

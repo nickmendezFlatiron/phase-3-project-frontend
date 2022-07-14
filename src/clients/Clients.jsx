@@ -1,7 +1,8 @@
 import React from 'react';
 
 // Bootstrap Components
-import {Container} from 'react-bootstrap' ;
+import {Container , Row  , Col} from 'react-bootstrap' ;
+import Pagination from 'react-bootstrap/Pagination'
 import Searchbar from './Searchbar';
 // App Components
 import GridView from './GridView';
@@ -13,7 +14,13 @@ const Clients = ({owners}) => {
     <>
       <h1 className='py-5'>Customers Portal</h1>
       <Container>
+      
+      
         <Searchbar />
+        <Pagination className="justify-content-between ">
+          <Pagination.Prev />
+          <Pagination.Next />
+        </Pagination>
         <GridView owners={owners}  />
       </Container>
     </>
