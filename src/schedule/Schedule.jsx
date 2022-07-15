@@ -1,5 +1,5 @@
 import{ React , useState }from 'react'
-import { useParams , Link } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
@@ -13,19 +13,19 @@ import AppointmentTable from './AppointmentTable'
 import { useEffect } from 'react'
 
 const Schedule = ({owners , walkers , appointments , setAppointments}) => {
-  const params = useParams()
   const [toggle , onToggle] = useState(false)
   const [filter , setFilter] = useState("")
+  const params = useParams()
   
   let spinner = <Spinner animation="border" role="status">
-  <span className="visually-hidden">Loading...</span>
-</Spinner>
+                  <span className="visually-hidden">Loading...</span>
+                </Spinner>
 
 
 useEffect(() => {
   if( Object.keys(params).length > 0) {
-    setFilter(params.dogName)
-    onToggle(!toggle)
+    setFilter(params.search)
+    onToggle(true)
   }
 } , [])
 

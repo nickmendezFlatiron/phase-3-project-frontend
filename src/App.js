@@ -38,7 +38,7 @@ function App() {
         <Routes >
             <Route path="/clients" exact element={<Clients owners={owners} appointments={appointments}/>}/>
             <Route path="/schedule" exact element={<Schedule owners={owners} walkers={walkers} appointments={appointments} setAppointments={setAppointments}/>} >
-              <Route path=":dogName" element={<Schedule owners={owners} walkers={walkers} appointments={appointments} setAppointments={setAppointments}/>} />
+              <Route path=":search" element={<Schedule owners={owners} walkers={walkers} appointments={appointments} setAppointments={setAppointments}/>} />
             </Route>
             <Route path="/payroll" exact element={<Payroll />} />
             <Route path="/" exact element={<HomePage />} />
