@@ -4,11 +4,13 @@ import Table from 'react-bootstrap/Table'
 import TableRow from './TableRow'
 
 const AppointmentTable = ({appointments , walkers , setAppointments , filter}) => {
+ 
+  if (walkers.length === 0 ) return <h3>Loading</h3>
 
   // Filter appointments by employee name and dog name
   const filterResults = appointments.filter(appointment => { 
     const walker = walkers.find(walker => walker.id === appointment.employee_id)
-    return appointment.title.toLowerCase().includes(filter) || walker.employee_name.toLowerCase().includes(filter)}
+    return appointment.title.toLowerCase().includes(filter.toLowerCase()) || walker.employee_name.toLowerCase().includes(filter.toLowerCase())}
   )
 
   const listOfRows = filterResults.map(appointment => {

@@ -8,7 +8,8 @@ const ClientCard = ({dog , owner , appointments}) => {
 
 
   const appointmentCount = appointments.filter(appointment => appointment.dog_id === id).length
-  
+  const name = owner_name.split(" ").slice(0,2).join(" ")
+
   return (
     <>
       <Col >
@@ -17,10 +18,10 @@ const ClientCard = ({dog , owner , appointments}) => {
           <Card.Body >
             <ListGroup variant="flush" >
             <Card.Subtitle >Name: {dog_name} </Card.Subtitle>
-              <ListGroup.Item>Owner: {owner_name}</ListGroup.Item>
+              <ListGroup.Item>Owner: {name}</ListGroup.Item>
               <ListGroup.Item>Emergency Contact: {phone_number} </ListGroup.Item>
               <ListGroup.Item>
-                <Card.Link href="/schedule">{appointmentCount} Appointments</Card.Link>
+                <Card.Link href={`/schedule/${dog_name}`}>{appointmentCount} Appointments</Card.Link>
               </ListGroup.Item>
               <ListGroup.Item></ListGroup.Item>
             </ListGroup>

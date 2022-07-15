@@ -1,7 +1,7 @@
 import React from 'react';
 
 // Bootstrap Components
-import {Container } from 'react-bootstrap' ;
+import { Container } from 'react-bootstrap' ;
 import Searchbar from './Searchbar';
 // App Components
 import GridView from './GridView';

@@ -1,4 +1,5 @@
-import{ React , useState , useEffect}from 'react'
+import{ React , useState }from 'react'
+import { useParams , Link } from 'react-router-dom'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
@@ -9,8 +10,10 @@ import AppointmentForm from './AppointmentForm'
 import AppointmentsCalendar from './AppointmentsCalendar'
 import Toolbar from './Toolbar'
 import AppointmentTable from './AppointmentTable'
+import { useEffect } from 'react'
 
 const Schedule = ({owners , walkers , appointments , setAppointments}) => {
+  const params = useParams()
   const [toggle , onToggle] = useState(false)
   const [filter , setFilter] = useState("")
   
@@ -18,9 +21,16 @@ const Schedule = ({owners , walkers , appointments , setAppointments}) => {
   <span className="visually-hidden">Loading...</span>
 </Spinner>
 
-  if (appointments.length === 0) return spinner
- 
-  
+
+useEffect(() => {
+  if( Object.keys(params).length > 0) {
+    setFilter(params.dogName)
+    onToggle(!toggle)
+  }
+} , [])
+
+  if (appointments.length === 0 ) return spinner
+
   const toggleView = toggle === false ? <AppointmentsCalendar appointments={appointments} walkers={walkers}/> : <AppointmentTable appointments={appointments} setAppointments={setAppointments} walkers={walkers} filter={filter}/>
   return (
     <Container >
