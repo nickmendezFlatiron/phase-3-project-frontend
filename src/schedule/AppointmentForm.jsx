@@ -136,7 +136,7 @@ const AppointmentForm = ({appointments , setAppointments , owners , walkers}) =>
           </Col>
         </Row>
         <div className="d-flex justify-content-center ">
-         <Button variant="info" type="submit" className="my-3 text-light" >Schedule Walk</Button>
+         <Button variant="dark" type="submit" className="my-3 text-light" >Schedule Walk</Button>
         </div>
       </Form>
     </Container>

@@ -2,9 +2,13 @@ import React from 'react'
 import {Card , Col , ListGroup} from 'react-bootstrap'
 // import { Link } from 'react-router-dom'
 
-const ClientCard = ({dog , owner}) => {
-  const {dog_name , dog_image } = dog
+const ClientCard = ({dog , owner , appointments}) => {
+  const {dog_name , dog_image ,id } = dog
   const {owner_name , phone_number} = owner
+
+
+  const appointmentCount = appointments.filter(appointment => appointment.dog_id === id).length
+  
   return (
     <>
       <Col >
@@ -16,11 +20,10 @@ const ClientCard = ({dog , owner}) => {
               <ListGroup.Item>Owner: {owner_name}</ListGroup.Item>
               <ListGroup.Item>Emergency Contact: {phone_number} </ListGroup.Item>
               <ListGroup.Item>
-                <Card.Link href="#">#_of Appointments</Card.Link>
+                <Card.Link href="/schedule">{appointmentCount} Appointments</Card.Link>
               </ListGroup.Item>
               <ListGroup.Item></ListGroup.Item>
             </ListGroup>
-            <Card.Link href="#">{dog_name}'s Profile</Card.Link>
           </Card.Body>
         </Card>
       </Col>

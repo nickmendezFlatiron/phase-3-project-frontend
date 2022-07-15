@@ -13,7 +13,7 @@ const Toolbar = ({toggle , onToggle , filter , setFilter}) => {
   return (
     <>
         <InputGroup size="lg">
-      <FormControl aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder='Search for appointments here...' value={filter} onChange={handleFilter}/>
+      <FormControl aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder='Search for appointments by name...' value={filter} onChange={handleFilter}/>
       <InputGroup.Text id="inputGroup-sizing-lg">
         <label  className="text-secondary" >Calendar &nbsp;</label>
           <Form.Check

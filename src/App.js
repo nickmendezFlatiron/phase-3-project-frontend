@@ -12,11 +12,16 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './app.css';
 
 function App() {
+  const [appointments , setAppointments] = useState([])
   const [owners , setOwners] = useState([])
   const [walkers , setWalkers] = useState([])
 
   useEffect(() => {
     const routes = ["owners" , "walkers"]
+
+    fetch("http://localhost:3002/appointments")
+    .then(r => r.json())
+    .then(appointments => setAppointments(appointments))
     
     Promise.all([fetch("http://localhost:3002/owners") , fetch("http://localhost:3002/walkers")])
     .then(r => Promise.all(r.map(res => res.json())))
@@ -31,8 +36,8 @@ function App() {
     <Fragment >
       <Navigation/>
         <Routes >
-            <Route path="/clients" exact element={<Clients owners={owners}/>} />
-            <Route path="/schedule" exact element={<Schedule owners={owners} walkers={walkers}/>} />
+            <Route path="/clients" exact element={<Clients owners={owners} appointments={appointments}/>}/>
+            <Route path="/schedule" exact element={<Schedule owners={owners} walkers={walkers} appointments={appointments} setAppointments={setAppointments}/>} />
             <Route path="/payroll" exact element={<Payroll />} />
             <Route path="/" exact element={<HomePage />} />
         </Routes>
