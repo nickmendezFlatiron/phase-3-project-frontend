@@ -6,7 +6,7 @@ import HomePage from './home/HomePage'
 import Clients from './clients/Clients';
 import Schedule from './schedule/Schedule';
 import Payroll from './payroll/Payroll';
-import Footer from './Footer';
+// import Footer from './Footer';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './app.css';
@@ -17,7 +17,7 @@ function App() {
   const [walkers , setWalkers] = useState([])
 
   useEffect(() => {
-    const routes = ["owners" , "walkers"]
+    
 
     fetch("http://localhost:3002/appointments")
     .then(r => r.json())
