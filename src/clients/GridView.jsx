@@ -10,7 +10,7 @@ const GridView = ({owners , appointments}) => {
   })
   
   return(
-    <Row xs={2} sm={2} md={3} lg={4} className="py-4 g-4"> 
+    <Row xs={2} sm={2} md={3} lg={4} className="pb-4 g-4"> 
     {listOfDogs}
     </Row> 
   )

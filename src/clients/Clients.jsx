@@ -1,7 +1,7 @@
 import React from 'react';
 
 // Bootstrap Components
-import { Container } from 'react-bootstrap' ;
+import { Col, Container, Row } from 'react-bootstrap' ;
 // App Components
 import GridView from './GridView';
 import ClientForm from './ClientForm';
@@ -13,8 +13,14 @@ const Clients = ({owners , appointments}) => {
     <>
       <h1 className='py-5'>Customers Portal</h1>
       <Container>
-      <ClientForm owners={owners}/>
-        <GridView owners={owners} appointments={appointments} />
+        <Row>
+          <Col lg={9}>
+            <GridView owners={owners} appointments={appointments} />
+          </Col>
+          <Col lg={3}>
+            <ClientForm owners={owners}/>
+          </Col>
+        </Row>
       </Container>
     </>
   )
