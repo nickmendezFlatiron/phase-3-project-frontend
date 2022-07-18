@@ -6,6 +6,7 @@ import ClientCard from './ClientCard'
 const GridView = ({owners , appointments}) => {
 
   const listOfDogs = owners.map(owner => {
+    
     return owner.dogs.map(dog =>   <ClientCard dog={dog} key={dog.id} owner={owner} appointments={appointments}/>)
   })
   

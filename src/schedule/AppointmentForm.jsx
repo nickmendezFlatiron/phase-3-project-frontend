@@ -48,7 +48,7 @@ const AppointmentForm = ({appointments , setAppointments , owners , walkers}) =>
 
     const end = new Date(newCopy.setMinutes(newDate.getMinutes() + 30)  )
    
-    if(dog === '' || date === '' || time === '' || walker === '' || walkDuration === '') {
+    if (dog === '' || date === '' || time === '' || walker === '' || walkDuration === '') {
      return alert('Please fill out the entire form to submit a new appointment.')
     }
 

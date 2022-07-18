@@ -6,7 +6,9 @@ const ClientCard = ({dog , owner , appointments}) => {
   const {dog_name , dog_image ,id } = dog
   const {owner_name , phone_number} = owner
 
-
+  const stock = `${require('../assets/stock.jpg')}`
+  const image = dog_image.length === 0 ? stock : dog_image
+ 
   const appointmentCount = appointments.filter(appointment => appointment.dog_id === id).length
   const name = owner_name.split(" ").slice(0,2).join(" ")
 
@@ -14,7 +16,7 @@ const ClientCard = ({dog , owner , appointments}) => {
     <>
       <Col >
         <Card className='text-center d-flex align-items-center'>
-          <Card.Img variant="top" src={dog_image} className="dog-card mt-4 rounded shadow"/>
+          <Card.Img variant="top" src={image} className="dog-card mt-4 rounded shadow"/>
           <Card.Body >
             <ListGroup variant="flush" >
             <Card.Subtitle >Name: {dog_name} </Card.Subtitle>
