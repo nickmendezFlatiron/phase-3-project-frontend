@@ -6,12 +6,12 @@ import { Col, Container, Row } from 'react-bootstrap' ;
 import GridView from './GridView';
 import ClientForm from './ClientForm';
 
-const Clients = ({owners , appointments}) => {
+const Clients = ({owners , appointments , setOwners}) => {
 
   if (appointments.length === 0) return <h3>Loading...</h3>
   return (
     <>
-      <h1 className='py-5'>Customers Portal</h1>
+      <h1 className='py-5'>Dogs Portal</h1>
       <Container>
         <Row>
           <Col lg={9}>

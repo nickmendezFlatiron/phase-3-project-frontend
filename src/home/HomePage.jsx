@@ -13,12 +13,12 @@ const HomePage = () => {
           <Col lg={4} className=' pb-3 '>
             <Card className="text-center shadow-lg">
               <Card.Header>
-                <Card.Title><strong>Create A New Customer</strong></Card.Title>
+                <Card.Title><strong>Create A New Dog</strong></Card.Title>
               </Card.Header>
               <Card.Body> 
                 <i className="icons fa-solid fa-dog text-secondary "></i>              
                 <Card.Text>
-                  Create and update customer profiles in your existing customer directory
+                  Create and update dog profiles in your existing directory
                 </Card.Text>
                 <Button as={Link} to="/clients" exact variant="primary">Go to Customers</Button>
               </Card.Body>

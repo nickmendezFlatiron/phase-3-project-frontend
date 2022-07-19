@@ -6,7 +6,7 @@ const ClientCard = ({dog , owner , appointments}) => {
   const {dog_name , dog_image ,id } = dog
   const {owner_name , phone_number} = owner
 
-  const stock = `${require('../assets/stock.jpg')}`
+  const stock = require('../assets/stock.jpg')
   const image = dog_image.length === 0 ? stock : dog_image
  
   const appointmentCount = appointments.filter(appointment => appointment.dog_id === id).length

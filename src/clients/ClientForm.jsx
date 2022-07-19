@@ -7,7 +7,7 @@ import Row from 'react-bootstrap/Row'
 
 import uuid from 'react-uuid'
 
-const ClientForm = ({owners}) => {
+const ClientForm = ({owners , setOwners}) => {
 
   const [ name , setName ] = useState('')
   const [ weight, setWeight ] = useState(0)
@@ -53,11 +53,13 @@ const ClientForm = ({owners}) => {
       body : JSON.stringify(newDog)
     })
       .then(r => r.json())
-      // .then(newDog => {
-      //   let updatedOwner = owners.find(o => o.id )
-      //   debugger
-      //   console.log(updatedOwner.dogs)
-      // })
+      .then(newDog => {
+        let updatedOwner = owners.filter(o => {
+        return  parseInt(owner) === parseInt(o.id)
+        } )
+        updatedOwner[0].dogs.push(newDog)
+        setOwners([...owners])
+      })
       alert("New Dog Profile Created")
       
   }

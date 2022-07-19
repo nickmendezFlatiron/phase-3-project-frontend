@@ -36,7 +36,7 @@ function App() {
     <Fragment >
       <Navigation/>
         <Routes >
-            <Route path="/clients" exact element={<Clients owners={owners} appointments={appointments}/>}/>
+            <Route path="/clients" exact element={<Clients owners={owners} appointments={appointments} setOwners={setOwners}/>}/>
             <Route path="/schedule" exact element={<Schedule owners={owners} walkers={walkers} appointments={appointments} setAppointments={setAppointments}/>} >
               <Route path=":search" element={<Schedule owners={owners} walkers={walkers} appointments={appointments} setAppointments={setAppointments}/>} />
             </Route>
