@@ -19,11 +19,11 @@ function App() {
   useEffect(() => {
     
 
-    fetch("http://localhost:3002/appointments")
+    fetch("http://localhost:3005/appointments")
     .then(r => r.json())
     .then(appointments => setAppointments(appointments))
     
-    Promise.all([fetch("http://localhost:3002/owners") , fetch("http://localhost:3002/walkers")])
+    Promise.all([fetch("http://localhost:3005/owners") , fetch("http://localhost:3005/walkers")])
     .then(r => Promise.all(r.map(res => res.json())))
     .then(data => {
       setOwners(data[0])

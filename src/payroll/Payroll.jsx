@@ -14,14 +14,16 @@ const Payroll = () => {
       .then(r => r.json())
       .then(employees => setEmployees(employees))
   },[])
-
+ 
+  if (employees.length === 0) return <h4>Loading...</h4>
+  
   return (
     <>
       <h1 className='py-5'>Payroll</h1>
     <Container>
      <Row>
-      <Col lg={7}>
-        <PayrollInfo infoId={infoId}/>
+      <Col lg={7} className='border border-dark border-2 rounded'>
+        <PayrollInfo infoId={infoId} employees={employees}/>
       </Col>
       <Col lg={5} className="height-match">
         <PayrollTable employees={employees} setInfoId={setInfoId}/>

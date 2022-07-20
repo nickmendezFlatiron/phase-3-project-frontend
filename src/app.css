@@ -36,3 +36,7 @@ h1 {
   overflow: auto;
   display:inline-block;
 }
+
+.no-bullets {
+  list-style-type: none;
+}

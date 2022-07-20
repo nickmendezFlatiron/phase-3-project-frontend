@@ -7,7 +7,7 @@ import uuid from 'react-uuid'
 
 const PayrollTable = ({employees , setInfoId}) => {
 
-  if (employees.length === 0) return <h4>Loading...</h4>
+  
   const listOfEmployees = employees.map(employee => <PayrollTableRow employee={employee} key={uuid()} setInfoId={setInfoId}/>)
 
   return (

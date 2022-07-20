@@ -58,7 +58,7 @@ const TableRow = ({appointment , walkers , appointments , setAppointments}) => {
   
 
   const form = <Form.Select aria-label="Select walker..." onChange={handleWalker}>
-                <option value={walker.id}>{walker.employee_name}</option>
+                <option value={walker.id}>{walker.employee_name.split(" ").slice(0 , 2).join(" ")}</option>
                 {listOfWalkers}
               </Form.Select>
 

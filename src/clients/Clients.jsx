@@ -12,10 +12,10 @@ const Clients = ({owners , appointments , setOwners}) => {
   return (
     <>
       <h1 className='py-5'>Dogs Portal</h1>
-      <Container>
+      <Container >
         <Row>
-          <Col lg={9}>
-            <GridView owners={owners} appointments={appointments} />
+          <Col lg={9} className='height-match'>
+            <GridView owners={owners} appointments={appointments} className="overflow"/>
           </Col>
           <Col lg={3}>
             <ClientForm owners={owners}/>
