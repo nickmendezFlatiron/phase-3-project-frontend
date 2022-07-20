@@ -2,15 +2,12 @@ import {React , useState} from 'react'
 import {Container , Form , Row , Col , Button} from 'react-bootstrap'
 
 const AppointmentForm = ({appointments , setAppointments , owners , walkers}) => {
-  // Date , time , Assign walker
+  
   const [dog , setDog] = useState('')
-  const [walkDuration , setWalkDuration] = useState('')
+  const [walkDuration , setWalkDuration] = useState(30)
   const [date , setDate] = useState('')
   const [time , setTime] = useState('')
   const [walker , setWalker] = useState('')
-  
-  
-  // console.log('owners' , owners)
 
   if (owners.length === 0) return <h3>Loading...</h3>
 
@@ -67,15 +64,15 @@ const AppointmentForm = ({appointments , setAppointments , owners , walkers}) =>
       body : JSON.stringify(newAppointment)
     })
       .then(r => r.json())
-      .then((appointment) => {setAppointments([...appointments , appointment])})
+      .then((appointment) => {
+        if(Object.keys(appointment).length === 1) {
+          alert(appointment.error)
+        } else {
+          setAppointments([...appointments , appointment])
+          alert(`Appointment for ${newDate} at ${time} has been scheduled`)
+        }
+      })
       
-    setDog('')
-    setWalkDuration('')
-    setDate('')
-    setTime('')
-    setWalker('')
-
-    alert(`Appointment for ${newDate} at ${time} has been scheduled`)
   }
 
   
