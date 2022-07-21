@@ -11,7 +11,7 @@ const PayrollTable = ({employees , setInfoId}) => {
   const listOfEmployees = employees.map(employee => <PayrollTableRow employee={employee} key={uuid()} setInfoId={setInfoId}/>)
 
   return (
-    <Table className='overflow border shadow' striped hover>
+    <Table className='overflow border rounded' striped hover>
       <thead>
         <th>ID</th>
         <th>Name</th>

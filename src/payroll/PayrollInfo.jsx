@@ -1,13 +1,13 @@
 import React from 'react'
-import { Button, NavLink } from 'react-bootstrap'
+import { Button, Container, NavLink } from 'react-bootstrap'
 
 const PayrollInfo = ({employees , infoId , setEmployees}) => {
 
   const employee = employees.filter(employee => parseInt(employee.id) === parseInt(infoId))
 
   let {id , employee_name , address , email , phone_number , position , wage , hours_worked , hours_ytd , appointments} = employee[0]
-  debugger
-  const walkerAppointments = position === "walker" ? <NavLink className="text-left pb-4" href={`/schedule/${employee_name}`}>{appointments.length} Appointments</NavLink> : ""
+  
+  const walkerAppointments = position === "walker" ? <NavLink className="text-left pb-3 border-bottom " href={`/schedule/${employee_name}`}>{appointments.length} Walks Scheduled</NavLink> : ""
   
   function handleClick(){
 
@@ -32,24 +32,27 @@ const PayrollInfo = ({employees , infoId , setEmployees}) => {
   }
   return (
     <>
-      <h4 className='pt-4'>{employee_name}</h4>
-      <br></br>
-      <p>Contact Information</p>
-      <ul className='no-bullets'>
-        <li>Address: {address}</li>
-        <li>Phone Number: {phone_number}</li>
-        <li>Email: {email}</li>
+      <Container className="bg-dark text-light align-items-center p-2 my-3 rounded shadow-lg">
+        <h2>{employee_name}</h2>
+      </Container>
+      <Container className="my-3 p-3 bg-white rounded box-shadow">
+      <h6 className="fw-bold">Contact Information</h6>
+      <ul className='no-bullets border-bottom p-3'>
+        <li><strong>Address:</strong> {address}</li>
+        <li><strong>Phone Number:</strong> {phone_number}</li>
+        <li><strong> Email:</strong> {email}</li>
       </ul>
-      <p>Employee Information</p>
-      <ul className='no-bullets'>
-        <li>ID: {id}</li>
-        <li>Position: {position}</li>
-        <li>Wage: ${wage}</li>
-        <li>Hours: {hours_worked}</li>
-        <li>Hours YTD: {hours_ytd}</li>
+      <h6 className="fw-bold">Employee Information</h6>
+      <ul className='no-bullets border-bottom p-3'>
+        <li><strong>ID:</strong> {id}</li>
+        <li><strong>Position:</strong> {position}</li>
+        <li><strong>Wage:</strong> ${wage}</li>
+        <li><strong>Hours:</strong> {hours_worked}</li>
+        <li><strong>Hours YTD:</strong> {hours_ytd}</li>
       </ul>
         {walkerAppointments}
-        <Button onClick={handleClick}>Send Direct Deposit</Button>
+        <Button className="p-3 mt-3" onClick={handleClick}>Send Direct Deposit</Button>
+      </Container>
     </>
   )
 }
