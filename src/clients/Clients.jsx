@@ -12,7 +12,7 @@ const Clients = ({owners , appointments , setOwners}) => {
   return (
     <>
       <h1 className='py-5'>Dogs Portal</h1>
-      <Container >
+      <Container className="text-center pe-0">
         <Row>
           <Col lg={9} className='height-match'>
             <GridView owners={owners} appointments={appointments} className="overflow"/>

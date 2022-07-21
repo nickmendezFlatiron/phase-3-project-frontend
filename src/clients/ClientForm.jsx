@@ -65,8 +65,8 @@ const ClientForm = ({owners , setOwners}) => {
   }
 
   return (
-    <Form onSubmit={handleSubmit}>
-        <Row className="justify-content-between text-center border-3 shadow-sm rounded">
+    <Form onSubmit={handleSubmit} className=" text-center mx-auto shadow rounded-3 bg-light bg-opacity-75 padding">
+        <Row className="justify-content-center">
           <Row>
             <Col>
             <Form.Group className="mb-3" controlId="formName">
