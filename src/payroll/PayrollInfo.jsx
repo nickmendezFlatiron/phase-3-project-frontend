@@ -1,12 +1,35 @@
 import React from 'react'
 import { Button, NavLink } from 'react-bootstrap'
 
-const PayrollInfo = ({employees , infoId }) => {
+const PayrollInfo = ({employees , infoId , setEmployees}) => {
 
   const employee = employees.filter(employee => parseInt(employee.id) === parseInt(infoId))
 
   let {id , employee_name , address , email , phone_number , position , wage , hours_worked , hours_ytd , appointments} = employee[0]
-  console.log(employee)
+  debugger
+  const walkerAppointments = position === "walker" ? <NavLink className="text-left pb-4" href={`/schedule/${employee_name}`}>{appointments.length} Appointments</NavLink> : ""
+  
+  function handleClick(){
+
+    const wages = hours_worked * wage
+
+    if (wages > 0) {
+      alert(`Direct deposit of $${wages} sent to ${employee_name}`)
+      fetch(`http://localhost:3005/employees/${infoId}` , {
+        method: 'PATCH' ,
+        headers: { "Content-Type" : "application/json" } ,
+        body: JSON.stringify({
+          hours_worked : 0
+        })
+      })
+        .then(r => r.json())
+        .then(res => {
+          const index = employees.indexOf(employee[0])
+          employees.splice(index , 1 , res) 
+          setEmployees([...employees])
+        })
+    }
+  }
   return (
     <>
       <h4 className='pt-4'>{employee_name}</h4>
@@ -24,10 +47,9 @@ const PayrollInfo = ({employees , infoId }) => {
         <li>Wage: ${wage}</li>
         <li>Hours: {hours_worked}</li>
         <li>Hours YTD: {hours_ytd}</li>
-        <li></li>
       </ul>
-        <NavLink className="text-left pb-4" href={`/schedule/${employee_name}`}>{appointments.length} Appointments</NavLink>
-        <Button>Send Direct Deposit</Button>
+        {walkerAppointments}
+        <Button onClick={handleClick}>Send Direct Deposit</Button>
     </>
   )
 }

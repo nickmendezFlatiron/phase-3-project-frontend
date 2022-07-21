@@ -12,7 +12,6 @@ const PayrollTableRow = ({employee , setInfoId}) => {
       <td>{id}</td>
       <td>{employee_name}</td>
       <td>{position}</td>
-      <td>{isClocked == 0 ? "No" : "Yes"}</td>
     </tr>
   )
 }

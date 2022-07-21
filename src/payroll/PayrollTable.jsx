@@ -16,7 +16,6 @@ const PayrollTable = ({employees , setInfoId}) => {
         <th>ID</th>
         <th>Name</th>
         <th>Position</th>
-        <th>Clocked In</th>
       </thead>
       <tbody>
         {listOfEmployees}

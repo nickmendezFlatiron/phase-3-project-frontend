@@ -3,7 +3,7 @@ import { Container , Row , Col } from 'react-bootstrap'
 import PayrollTable from './PayrollTable'
 import PayrollInfo from './PayrollInfo'
 
-const Payroll = () => {
+const Payroll = ({setAppointments}) => {
   const [employees , setEmployees] = useState([])
   const [infoId , setInfoId] = useState(1)
 
@@ -16,14 +16,14 @@ const Payroll = () => {
   },[])
  
   if (employees.length === 0) return <h4>Loading...</h4>
-  
+
   return (
     <>
       <h1 className='py-5'>Payroll</h1>
     <Container>
      <Row>
       <Col lg={7} className='border border-dark border-2 rounded'>
-        <PayrollInfo infoId={infoId} employees={employees}/>
+        <PayrollInfo infoId={infoId} employees={employees} setEmployees={setEmployees} setAppointments={setAppointments}/>
       </Col>
       <Col lg={5} className="height-match">
         <PayrollTable employees={employees} setInfoId={setInfoId}/>
