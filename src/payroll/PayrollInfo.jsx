@@ -11,7 +11,7 @@ const PayrollInfo = ({employees , infoId , setEmployees}) => {
   
   function handleClick(){
 
-    const wages = hours_worked * wage
+    const wages = Number.parseFloat(hours_worked * wage)
 
     if (wages > 0) {
       alert(`Direct deposit of $${wages} sent to ${employee_name}`)

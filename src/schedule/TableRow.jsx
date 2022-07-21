@@ -4,7 +4,7 @@ import Form from 'react-bootstrap/Form'
 
 const TableRow = ({appointment , walkers , appointments , setAppointments}) => {
 
-  let {id , start , title , employee_id , walk_duration} = appointment
+  let {id , start , title , employee_id , walk_duration } = appointment
   const walker = walkers.find(walker => walker.id === employee_id)
 
   const [walkerId , setWalkerState] = useState(walker.id)
@@ -16,7 +16,7 @@ const TableRow = ({appointment , walkers , appointments , setAppointments}) => {
    let res = window.confirm(`Are you sure you want to cancel ${title}'s walk with ${walker.employee_name}?` )
    if (res === true) {
      let filter = appointments.filter(appointment => appointment.id !== id)
-     fetch(`http://localhost:3002/appointments/${id}` , {method: 'DELETE'})
+     fetch(`http://localhost:3005/appointments/${id}` , {method: 'DELETE'})
        .then(r => r.json())
        .then(() => setAppointments(filter))
    } 
@@ -24,22 +24,27 @@ const TableRow = ({appointment , walkers , appointments , setAppointments}) => {
   
   function handleUpdate() {
     if (walker.id !== walkerId || walk_duration !== time) {
-      fetch(`http://localhost:3002/appointments/${id}` , {
+      fetch(`http://localhost:3005/appointments/${id}` , {
         method: 'PATCH' ,
         headers: { "Content-Type" : "application/json" } ,
         body: JSON.stringify({
           employee_id: walkerId , 
-          walk_duration: time 
+          walk_duration: time ,
+          start: start
         })
       })
         .then((r) => r.json()) 
         .then(res => {
           // const filter = appointments.filter(a => a.id !== id)
-          const index = appointments.indexOf(appointment)
-          appointments.splice(index , 1 , res) 
-          setAppointments([...appointments])
+          console.log(res)
+          if( Object.keys(res).length !== 1) {
+            const index = appointments.indexOf(appointment)
+            appointments.splice(index , 1 , res) 
+            setAppointments([...appointments])
+            alert(`${title}'s Walk Updated`)
+          }else {alert(res.error)}
+          
         })
-        alert(`${title}'s Walk Updated`)
         
     }
   }
