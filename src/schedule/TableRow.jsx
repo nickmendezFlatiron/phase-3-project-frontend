@@ -10,8 +10,10 @@ const TableRow = ({appointment , walkers , appointments , setAppointments}) => {
   const [walkerId , setWalkerState] = useState(walker.id)
   const [time , setTime] = useState(walk_duration)
   
-  start = (new Date(start)).toString().split(" ").slice(0,5).join(" ")
+  let formatStart = (new Date(start)).toString().split(" ").slice(0,5).join(" ")
   
+  let end = new Date((new Date(start)).getTime() + (1000 * 60 * time))
+  debugger
   function handleCancel() {
    let res = window.confirm(`Are you sure you want to cancel ${title}'s walk with ${walker.employee_name}?` )
    if (res === true) {
@@ -28,9 +30,10 @@ const TableRow = ({appointment , walkers , appointments , setAppointments}) => {
         method: 'PATCH' ,
         headers: { "Content-Type" : "application/json" } ,
         body: JSON.stringify({
-          employee_id: walkerId , 
-          walk_duration: time ,
-          start: start
+          employee_id: parseInt(walkerId) , 
+          walk_duration: parseInt(time) ,
+          start: start ,
+          end: end 
         })
       })
         .then((r) => r.json()) 
@@ -55,7 +58,7 @@ const TableRow = ({appointment , walkers , appointments , setAppointments}) => {
 
   function handleTime(event) {
     setTime(parseInt(event.target.value))
-    console.log("time " , event.target.value)
+    
   }
 
   
@@ -76,7 +79,7 @@ const TableRow = ({appointment , walkers , appointments , setAppointments}) => {
 
   return (
     <tr>
-      <td>{start}</td>
+      <td>{formatStart}</td>
       <td>{timeForm}</td>
       <td>{title}</td>
       <td>{form}</td>

@@ -22,10 +22,10 @@ const Payroll = ({setAppointments}) => {
       <h1 className='py-5'>Payroll</h1>
     <Container>
      <Row>
-      <Col lg={7} className='border border-dark border-2 rounded'>
+      <Col lg={8} className='border border-dark border-2 rounded'>
         <PayrollInfo infoId={infoId} employees={employees} setEmployees={setEmployees} setAppointments={setAppointments}/>
       </Col>
-      <Col lg={5} className="height-match">
+      <Col lg={4} className="height-match">
         <PayrollTable employees={employees} setInfoId={setInfoId}/>
       </Col>
       </Row> 

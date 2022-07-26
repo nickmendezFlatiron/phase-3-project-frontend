@@ -72,7 +72,7 @@ const AppointmentsCalendar = ({appointments , walkers}) => {
         showMultiDayTimes
         step={60}
         onSelectEvent={handleSelectEvent}
-        // showAllEvents={true}
+        showAllEvents={true}
         style={style}
       />
     

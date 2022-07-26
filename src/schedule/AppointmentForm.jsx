@@ -50,15 +50,15 @@ const AppointmentForm = ({appointments , setAppointments , owners , walkers}) =>
     }
 
     const newAppointment = {
-      dog_id : dog ,
-      employee_id : walker , 
+      dog_id : parseInt(dog) ,
+      employee_id : parseInt(walker) , 
       walk_duration : walkDuration ,
       start : newDate  ,
       end : end  
     }
 
 
-    fetch(`http://localhost:3002/appointments` , {
+    fetch(`http://localhost:3005/appointments` , {
       method : 'POST' ,
       headers: { "Content-Type" : 'application/json'} ,
       body : JSON.stringify(newAppointment)
