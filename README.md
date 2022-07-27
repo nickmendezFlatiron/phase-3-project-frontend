@@ -34,10 +34,12 @@ __Wag N' Walk__ is a appointment management tool tailored for dog walking busine
 
 ![Payroll and Employees Portal](https://github.com/nickmendezFlatiron/phase-3-project-frontend/blob/main/src/assets/readme-files/employees-portal.png)
   - Access sensitive employee information and submit a direct deposit payment to any given employee for a pay period.
-  
+
 #### 
 #### Installations and Setup 
 * Fork and clone 
+* Fork and clone the backend as well though the link below
+  - https://github.com/nickmendezFlatiron/phase-3-backend
 * Open project , run npm install
 * Run the following npm commands 
   * npm add bootstrap bootstrap-react
