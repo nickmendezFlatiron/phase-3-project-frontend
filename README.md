@@ -14,14 +14,14 @@ __Wag N' Walk__ is a appointment management tool tailored for dog walking busine
 ![Admin Portal](https://github.com/nickmendezFlatiron/phase-3-project-frontend/blob/main/src/assets/readme-files/admin-portal.png?raw=true)
   - The Home Page , or Admin Portal , features the various portals accessible by the admin role. 
 
-### 2. Appointments Page
-  - The appointments page includes a Calendar view , a Table View , an Appointment Scheduling form, and a search bar.
+### 2. Schedule Page
+  - The Schedule page includes a Calendar view , a Table View , an Appointment Scheduling form, and a search bar.
 #### Calendar View
 ![Calendar View](https://github.com/nickmendezFlatiron/phase-3-project-frontend/blob/main/src/assets/readme-files/calendar.png)
   - The Calendar view neatly displays each appointment according to the date and time the appointment is scheduled. 
   - Use the searchbar to filter through appointments by employee/dog name
-#### Edit Appointments View
-![Appointments Table View](https://github.com/nickmendezFlatiron/phase-3-project-frontend/blob/main/src/assets/readme-files/edit-appointments.png)
+#### Edit Schedule View
+![Schedule Table View](https://github.com/nickmendezFlatiron/phase-3-project-frontend/blob/main/src/assets/readme-files/edit-appointments.png)
   - The Table view allows the admin to update and delete existing appointments. 
   - Use the searchbar to filter through appointments by employee/dog name
 
@@ -33,7 +33,7 @@ __Wag N' Walk__ is a appointment management tool tailored for dog walking busine
 ### 4. Employees and Payroll Portal
 
 ![Payroll and Employees Portal](https://github.com/nickmendezFlatiron/phase-3-project-frontend/blob/main/src/assets/readme-files/employees-portal.png)
-  - Access sensitive employee information and submit a direct deposit payment to any given employee for a pay period.
+  - Access sensitive employee information and submit a direct deposit payment to any given employee for the current pay period.
 
 #### 
 #### Installations and Setup 
