@@ -38,8 +38,6 @@ __Wag N' Walk__ is a appointment management tool tailored for dog walking busine
 #### 
 #### Installations and Setup 
 * Fork and clone 
-* Fork and clone the backend as well though the link below
-  - https://github.com/nickmendezFlatiron/phase-3-backend
 * Open project , run npm install
 * Run the following npm commands 
   * npm add bootstrap bootstrap-react
@@ -51,6 +49,12 @@ __Wag N' Walk__ is a appointment management tool tailored for dog walking busine
 * open another command terminal and access the src file
  - run json-server --watch db.json to setup localhost database
 * run npm start
+
+* For the Backend
+  - Fork and clone the backend as well though the link below
+  https://github.com/nickmendezFlatiron/phase-3-backend
+  - To seed new data , run:
+    - rake db:drop db:migrate db:seed
 
 
 ## Contributors
