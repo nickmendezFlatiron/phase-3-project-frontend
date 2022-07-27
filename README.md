@@ -1,11 +1,41 @@
 # Wag N' Walk
+
 #### Overview 
+
 __Wag N' Walk__ is a appointment management tool tailored for dog walking businesses.
-Create , manage , search , and cancel appointments from a single interface. 
-Access a functional Calendar , which displays all the existing scheduled walks for any given time. 
-Schedule walks without the worry of accidentally scheduling conflicting appointments
+  - Create , manage , search , and cancel appointments from a single interface. 
+  - Access a functional Calendar , which displays all the existing scheduled walks for any given time. 
+  - Schedule walks without the worry of accidentally scheduling conflicting appointments
 
+## Pages/Routes
+ ***Note*** : each page features a navigation bar , which features links to the main pages
 
+### 1. Home Page
+![Admin Portal](https://github.com/nickmendezFlatiron/phase-3-project-frontend/blob/main/src/assets/readme-files/admin-portal.png?raw=true)
+  - The Home Page , or Admin Portal , features the various portals accessible by the admin role. 
+
+### 2. Appointments Page
+  - The appointments page includes a Calendar view , a Table View , an Appointment Scheduling form, and a search bar.
+#### Calendar View
+![Calendar View](https://github.com/nickmendezFlatiron/phase-3-project-frontend/blob/main/src/assets/readme-files/calendar.png)
+  - The Calendar view neatly displays each appointment according to the date and time the appointment is scheduled. 
+  - Use the searchbar to filter through appointments by employee/dog name
+#### Edit Appointments View
+![Appointments Table View](https://github.com/nickmendezFlatiron/phase-3-project-frontend/blob/main/src/assets/readme-files/edit-appointments.png)
+  - The Table view allows the admin to update and delete existing appointments. 
+  - Use the searchbar to filter through appointments by employee/dog name
+
+### 3. Dog Portal
+![Dog Portal](https://github.com/nickmendezFlatiron/phase-3-project-frontend/blob/main/src/assets/readme-files/dogs-portal.png)
+  - Create profiles and access valuable information for each dog. 
+  - Click on the appointments link to view all current appointments in the Table view. 
+
+### 4. Employees and Payroll Portal
+
+![Payroll and Employees Portal](https://github.com/nickmendezFlatiron/phase-3-project-frontend/blob/main/src/assets/readme-files/employees-portal.png)
+  - Access sensitive employee information and submit a direct deposit payment to any given employee for a pay period.
+  
+#### 
 #### Installations and Setup 
 * Fork and clone 
 * Open project , run npm install
